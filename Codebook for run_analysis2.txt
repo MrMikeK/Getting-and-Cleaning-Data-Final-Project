@@ -1,0 +1,50 @@
+Codebook
+(Borrowed from given site and then edited to fit my assignment)
+=================
+
+The features selected for this database come from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ. These time domain signals (prefix 't' to denote time) were captured at a constant rate of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. Similarly, the acceleration signal was then separated into body and gravity acceleration signals (tBodyAcc-XYZ and tGravityAcc-XYZ) using another low pass Butterworth filter with a corner frequency of 0.3 Hz. 
+
+Subsequently, the body linear acceleration and angular velocity were derived in time to obtain Jerk signals (tBodyAccJerk-XYZ and tBodyGyroJerk-XYZ). Also the magnitude of these three-dimensional signals were calculated using the Euclidean norm (tBodyAccMag, tGravityAccMag, tBodyAccJerkMag, tBodyGyroMag, tBodyGyroJerkMag). 
+
+Finally a Fast Fourier Transform (FFT) was applied to some of these signals producing fBodyAcc-XYZ, fBodyAccJerk-XYZ, fBodyGyro-XYZ, fBodyAccJerkMag, fBodyGyroMag, fBodyGyroJerkMag. (Note the 'f' to indicate frequency domain signals). 
+
+These signals were used to estimate variables of the feature vector for each pattern:  
+'-XYZ' is used to denote 3-axial signals in the X, Y and Z directions.
+
+tBodyAcc-XYZ
+tGravityAcc-XYZ
+tBodyAccJerk-XYZ
+tBodyGyro-XYZ
+tBodyGyroJerk-XYZ
+tBodyAccMag
+tGravityAccMag
+tBodyAccJerkMag
+tBodyGyroMag
+tBodyGyroJerkMag
+fBodyAcc-XYZ
+fBodyAccJerk-XYZ
+fBodyGyro-XYZ
+fBodyAccMag
+fBodyAccJerkMag
+fBodyGyroMag
+fBodyGyroJerkMag
+
+The set of variables that were estimated from these signals that I kept are: 
+
+mean(): Mean value
+std(): Standard deviation
+
+
+Additional vectors obtained by averaging the signals in a signal window sample. These are used on the angle() variable:
+
+gravityMean
+tBodyAccMean
+tBodyAccJerkMean
+tBodyGyroMean
+tBodyGyroJerkMean
+
+The complete list of variables of each feature vector is available below: [1] "Time: BodyAcceleration-mean()-X"                             [2] "Time: BodyAcceleration-mean()-Y"                             [3] "Time: BodyAcceleration-mean()-Z"                             [4] "Time: BodyAcceleration-Standard Deviation()-X"               [5] "Time: BodyAcceleration-Standard Deviation()-Y"               [6] "Time: BodyAcceleration-Standard Deviation()-Z"               [7] "Time: GravityAcceleration-mean()-X"                          [8] "Time: GravityAcceleration-mean()-Y"                          [9] "Time: GravityAcceleration-mean()-Z"                         [10] "Time: GravityAcceleration-Standard Deviation()-X"           [11] "Time: GravityAcceleration-Standard Deviation()-Y"           [12] "Time: GravityAcceleration-Standard Deviation()-Z"           [13] "Time: BodyAccelerationJerk-mean()-X"                        [14] "Time: BodyAccelerationJerk-mean()-Y"                        [15] "Time: BodyAccelerationJerk-mean()-Z"                        [16] "Time: BodyAccelerationJerk-Standard Deviation()-X"          [17] "Time: BodyAccelerationJerk-Standard Deviation()-Y"          [18] "Time: BodyAccelerationJerk-Standard Deviation()-Z"          [19] "Time: BodyGyro-mean()-X"                                    [20] "Time: BodyGyro-mean()-Y"                                    [21] "Time: BodyGyro-mean()-Z"                                    [22] "Time: BodyGyro-Standard Deviation()-X"                      [23] "Time: BodyGyro-Standard Deviation()-Y"                      [24] "Time: BodyGyro-Standard Deviation()-Z"                      [25] "Time: BodyGyroJerk-mean()-X"                                [26] "Time: BodyGyroJerk-mean()-Y"                                [27] "Time: BodyGyroJerk-mean()-Z"                                [28] "Time: BodyGyroJerk-Standard Deviation()-X"                  [29] "Time: BodyGyroJerk-Standard Deviation()-Y"                  [30] "Time: BodyGyroJerk-Standard Deviation()-Z"                  [31] "Time: BodyAccelerationMag-mean()"                           [32] "Time: BodyAccelerationMag-Standard Deviation()"             [33] "Time: GravityAccelerationMag-mean()"                        [34] "Time: GravityAccelerationMag-Standard Deviation()"          [35] "Time: BodyAccelerationJerkMag-mean()"                       [36] "Time: BodyAccelerationJerkMag-Standard Deviation()"         [37] "Time: BodyGyroMag-mean()"                                   [38] "Time: BodyGyroMag-Standard Deviation()"                     [39] "Time: BodyGyroJerkMag-mean()"                               [40] "Time: BodyGyroJerkMag-Standard Deviation()"                 [41] "Frequency: BodyAcceleration-mean()-X"                       [42] "Frequency: BodyAcceleration-mean()-Y"                       [43] "Frequency: BodyAcceleration-mean()-Z"                       [44] "Frequency: BodyAcceleration-Standard Deviation()-X"         [45] "Frequency: BodyAcceleration-Standard Deviation()-Y"         [46] "Frequency: BodyAcceleration-Standard Deviation()-Z"         [47] "Frequency: BodyAcceleration-meanFreq()-X"                   [48] "Frequency: BodyAcceleration-meanFreq()-Y"                   [49] "Frequency: BodyAcceleration-meanFreq()-Z"                   [50] "Frequency: BodyAccelerationJerk-mean()-X"                   [51] "Frequency: BodyAccelerationJerk-mean()-Y"                   [52] "Frequency: BodyAccelerationJerk-mean()-Z"                   [53] "Frequency: BodyAccelerationJerk-Standard Deviation()-X"     [54] "Frequency: BodyAccelerationJerk-Standard Deviation()-Y"     [55] "Frequency: BodyAccelerationJerk-Standard Deviation()-Z"     [56] "Frequency: BodyAccelerationJerk-meanFreq()-X"               [57] "Frequency: BodyAccelerationJerk-meanFreq()-Y"               [58] "Frequency: BodyAccelerationJerk-meanFreq()-Z"               [59] "Frequency: BodyGyro-mean()-X"                               [60] "Frequency: BodyGyro-mean()-Y"                               [61] "Frequency: BodyGyro-mean()-Z"                               [62] "Frequency: BodyGyro-Standard Deviation()-X"                 [63] "Frequency: BodyGyro-Standard Deviation()-Y"                 [64] "Frequency: BodyGyro-Standard Deviation()-Z"                 [65] "Frequency: BodyGyro-meanFreq()-X"                           [66] "Frequency: BodyGyro-meanFreq()-Y"                           [67] "Frequency: BodyGyro-meanFreq()-Z"                           [68] "Frequency: BodyAccelerationMag-mean()"                      [69] "Frequency: BodyAccelerationMag-Standard Deviation()"        [70] "Frequency: BodyAccelerationMag-meanFreq()"                  [71] "Frequency: BodyBodyAccelerationJerkMag-mean()"              [72] "Frequency: BodyBodyAccelerationJerkMag-Standard Deviation()"[73] "Frequency: BodyBodyAccelerationJerkMag-meanFreq()"          [74] "Frequency: BodyBodyGyroMag-mean()"                          [75] "Frequency: BodyBodyGyroMag-Standard Deviation()"            [76] "Frequency: BodyBodyGyroMag-meanFreq()"                      [77] "Frequency: BodyBodyGyroJerkMag-mean()"                      [78] "Frequency: BodyBodyGyroJerkMag-Standard Deviation()"        [79] "Frequency: BodyBodyGyroJerkMag-meanFreq()"     
+
+* Gyro refers to gyroscope, the machine used to measure angular velocity.
+
+I took data from 30 people given by the people described in the README on this repo.  I combined the test and train data into one data frame called “datause”, extracted all columns that dealt with means and standard deviations (more details provided in README and on R script on repo) and cleaned the data.  I then made a separate data frame that found the mean value of each variable in data use; the new data frame is called “df2”.
