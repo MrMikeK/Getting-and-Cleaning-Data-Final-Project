@@ -53,7 +53,7 @@ rm(Standing);rm(Sitting);rm(Laying);rm(WalkingUp);rm(WalkingDown);rm(Walking)
 
 # Cbind "Activities" and "datause"
 datause<-cbind(Activities,datause)
-View(datause)
+# View(datause) will allow you to view whole dataset
 
 # Make df with only means shown; transpose and use "View"
 df2<-as.data.frame(colMeans(datause[,2:80])); df2<-t(df2); df2<-as.data.frame(df2);
