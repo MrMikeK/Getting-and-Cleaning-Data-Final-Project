@@ -8,4 +8,4 @@ My repo contains this README, and the codebook mentioned above and the R script 
 
 I combined the test and training data into one giant data frame.  I then extracted only the variables (columns) that discussed means and standard deviations.  The means and standard deviations included body acceleration and jerk along 3 axes (3-dimensional), gravity acceleration and jerk and angular velocity in 3-D, and all of this was calculated with both time and frequency variables, for a total of 79 extracted variables in the data frame.  There were a total of 10,299 observations on these variables.  The R script detailing all of this is called run_analysis.R.
 
-After creating this data frame, I created one more small data frame that consisted of the mean values for each of the 79 aforementioned variables.  
+After creating this data frame, I created one more data frame to complete the project.  I grouped the original data frame ("datause") by Activity ("walking","walking upstairs", etc.) and Subject (person) and then attempted to summarize this with the "mean" function.
