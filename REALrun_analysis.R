@@ -2,6 +2,7 @@
 # Be sure that both the "train" and "test" files are available!  To do this,
 # I put both in the directory "UCI HAR Dataset 2"
 ##setwd(your_directory)
+library(dplyr)
 
 # Download train files 
 Xtrain<-read.table("X_train.txt"); ytrain<-read.table("y_train.txt"); sttrain<-read.table("subject_train.txt")
@@ -9,13 +10,20 @@ Xtrain<-read.table("X_train.txt"); ytrain<-read.table("y_train.txt"); sttrain<-r
 # cbind all three into one big data frame (562nd column is y which is important, 563rd is st)
 traindata<-cbind(ytrain,sttrain); traindata<-cbind(Xtrain,traindata)
 
-# Remove X, y and st so as to only keep the one unified data frame
-rm(Xtrain);rm(ytrain);rm(sttrain)
+# Remove X and y so as to only keep the one unified data frame
+rm(Xtrain);rm(ytrain)
 
 # Repeat all above for test .txt files
 X<-read.table("X_test.txt"); y<-read.table("y_test.txt"); st<-read.table("subject_test.txt");
 testdata<-cbind(y,st); testdata<-cbind(X,testdata);
-rm(X);rm(y);rm(st)
+rm(X);rm(y)
+
+# Creat "Subjectuse" integer vector, which will later be used for Step 5 of project
+sttrain<-read.table("subject_train.txt")
+st<-read.table("subject_test.txt")
+Subjectuse<-rbind(sttrain,st)
+Subjectuse<-as.numeric(Subjectuse[,1])
+
 
 # rbind testdata and traindata into one large dataset "alldata"; remove traindata and testdata;
 # make last two columns of all data a separate dataframe "supp"
@@ -36,6 +44,8 @@ columns<-sort(as.numeric(c(meancols,stdcols))); rm(meancols); rm(stdcols)
 # Pare down alldata into only columns with "mean" or "std" in description; call it "datause"
 datause<-alldata[,columns]
 
+# Creat integer vector of length 10299 that corresponds to "Subject" (81)
+
 # Use gsub to clean up Column names (make descriptions a bit more clear)
 names(datause)<-gsub("Acc", "Acceleration",names(datause)); names(datause)<-gsub("std", "Standard Deviation",names(datause));
 names(datause)<-gsub("fBody", "Frequency: Body",names(datause)); names(datause)<-gsub("tBody", "Time: Body",names(datause));
@@ -52,15 +62,11 @@ Laying<-grep("6",supp[,1]); Activities[Laying]<-c("Laying")
 rm(Standing);rm(Sitting);rm(Laying);rm(WalkingUp);rm(WalkingDown);rm(Walking)
 
 # Cbind "Activities" and "datause" and "Subject"
-datause<-cbind(Activities,datause,Subject)
-datause<-as.data.frame(group_by(datause,Activities,Subject))
-# View(datause) will allow you to view whole dataset
+datause<-cbind(Activities,datause,Subjectuse)
+### View(datause) will allow you to view whole dataset
 
-# Make df "try" with only means shown
-try<-summarize(datause,mean)
-###rownames(df2)<-c("Means")
-View(try)
-
-
+datause22<-group_by(datause,Activities,Subjectuse)
+FinalStep<-summarize_all(datause22,funs(mean))
+View(FinalStep)
 
 
